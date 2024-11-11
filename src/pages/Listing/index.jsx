@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import { CgMenuGridR } from 'react-icons/cg'
 import { FaAngleDown } from 'react-icons/fa6'
 import { HiViewGrid } from 'react-icons/hi'
-import { IoIosMenu } from 'react-icons/io'
 import { TfiLayoutGrid4Alt } from 'react-icons/tfi'
 import { ProductItem, Sidebar } from '../../components'
 import './style.css'
@@ -32,7 +31,6 @@ export const Listing = () => {
 
               <div className="showBy mt-3 mb-3 d-flex align-items-center">
                 <div className='d-flex align-items-center btnWrapper'>
-                  <Button className={productView === 'one' && 'act'} onClick={() => setProductView('one')}><IoIosMenu /></Button>
                   <Button className={productView === 'two' && 'act'} onClick={() => setProductView('two')}><HiViewGrid /></Button>
                   <Button className={productView === 'three' && 'act'} onClick={() => setProductView('three')}><CgMenuGridR /></Button>
                   <Button className={productView === 'four' && 'act'} onClick={() => setProductView('four')}><TfiLayoutGrid4Alt /></Button>
