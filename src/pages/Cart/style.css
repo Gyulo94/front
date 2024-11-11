@@ -1,0 +1,23 @@
+.cartPage .row { flex-direction: column; }
+.cartPage .table thead { background: #5B356B !important; overflow: hidden; }
+.cartPage .table thead th { border: 0 !important; color: #FFE8FF; }
+.cartPage .table tbody td { color: #FFE8FF; }
+.cartPage .table thead th:first-child { border-top-left-radius: 10px !important; border-bottom-left-radius: 10px !important; }
+.cartPage .table thead th:last-child { border-top-right-radius: 10px !important; border-bottom-right-radius: 10px !important; }
+
+.cartItemImgWrapper { width: 280px; }
+.cartItemImgWrapper .imgWrapper { width: 100px; overflow: hidden; }
+.cartItemImgWrapper .info a:hover { text-decoration: none; }
+.cartItemImgWrapper .info h6 { color: #FFE8FF; font-weight: bold; }
+.cartItemImgWrapper .info h6:hover { color: #ed174a !important; }
+
+.remove { cursor: pointer; }
+.remove svg { font-size: 30px; }
+.remove:hover svg { color: #ed174a !important; }
+
+.cartPage .quantityDrop button { zoom: 75%; }
+.cartPage table th, .cartPage table td { vertical-align: middle; }
+.cartPage .table td, .cartPage .table th { border-top: 0 !important; border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important; }
+
+.cartDetails { border-radius: 7px !important; position: sticky; top: 20px; }
+.cartDetails h4 { font-size: 16px; padding-bottom: 10px; font-weight: 800 !important; border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important; }

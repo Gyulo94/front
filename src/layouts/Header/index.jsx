@@ -1,66 +1,51 @@
-import Logo from "@/assets/Steam_icon_logo.png";
-import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { NavButton } from "../../components/Button";
-import { AUTH_PATH, COM_PATH, GAME_PATH, NEWS_PATH, STORE_PATH } from "../../constants";
-import "./style.css";
+import Button from "@mui/material/Button";
+import { useContext } from "react";
+import { FiUser } from "react-icons/fi";
+import { IoBagOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
+import { MyContext } from "../../App";
+// import { Logo } from '../../assets';
+import { Navigation, SearchBox } from "../../components";
+import './style.css';
 
 export default function Header() {
-  const [selectedNavButton, setSelectedNavButton] = useState(
-    () => localStorage.getItem("selectedNavButton") || ""
-  );
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    localStorage.setItem("selectedNavButton", selectedNavButton);
-  }, [selectedNavButton]);
-
-  const onLogoClickHander = () => {
-    navigate("/");
-    setSelectedNavButton("");
-  };
-
-  const onNavButtonClickHandler = (selectedNavButton) => {
-    setSelectedNavButton(selectedNavButton);
-    navigate(`${selectedNavButton}`);
-  };
+  const context = useContext(MyContext);
 
   return (
-    <header id="header">
-      <div className="header-container">
-        <div className="left-box" onClick={onLogoClickHander}>
-          <div className="logo-image-wrapper">
-            <img src={Logo} alt="logo" />
+    <>
+      <div className="headerWrapper">
+        <header className="header">
+          <div className="container">
+            <div className="row">
+              <div className="logoWrapper d-flex align-items-center col-sm-2">
+                <Link to="/">
+                  <img src="https://store.fastly.steamstatic.com/public/shared/images/header/logo_steam.svg?t=962016" alt="Logo" />
+                </Link>
+              </div>
+              <div className="col-sm-10 d-flex align-items-center part2">
+                <SearchBox />
+                <div className="part3 d-flex align-items-center ml-auto">
+                  {
+                    context.isLogin === false ? <Link to={"/sign-in"}><Button className="btn-purple btn-round mr-3">로그인</Button></Link> : <Button className="circle mr-3"><FiUser /></Button>
+                  }
+                    <div className="ml-auto cartTab d-flex align-items-center">
+                      <div className="position-relative  ml-2">
+                        <Link to="/cart">
+                          <Button className="circle"><IoBagOutline /></Button>
+                        </Link>
+                        <span className="count d-flex align-items-center justify-content-center">1</span>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <h1>Steaming</h1>
-        </div>
+        </header>
 
-        <div className="middle-box">
-          <NavButton
-            isSelected={selectedNavButton === NEWS_PATH()}
-            onSelect={() => onNavButtonClickHandler(NEWS_PATH())}
-            title={"NEWS"}
-          />
-          <NavButton
-            isSelected={selectedNavButton === GAME_PATH()}
-            onSelect={() => onNavButtonClickHandler(GAME_PATH())}
-            title={"GAME"}
-          />
-          <NavButton
-            isSelected={selectedNavButton === COM_PATH()}
-            onSelect={() => onNavButtonClickHandler(COM_PATH())}
-            title={"COMMUNITY"}
-          />
-          <NavButton
-            isSelected={selectedNavButton === STORE_PATH()}
-            onSelect={() => onNavButtonClickHandler(STORE_PATH())}
-            title={"STORE"}
-          />
-        </div>
-        <div className="right-box">
-          <Link to={AUTH_PATH()}>로그인</Link>
-        </div>
+        <Navigation />
+
       </div>
-    </header>
+    </>
   );
 }

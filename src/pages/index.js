@@ -1,9 +1,9 @@
-import Auth from "./Auth";
-import Community from "./Community";
-import Game from "./Game";
-import Main from "./Main";
-import News from "./News";
-import Store from "./Store";
+import { Cart } from "./Cart";
+import { Home } from "./Home";
+import { Listing } from "./Listing";
+import { ProductDetails } from "./ProductDetails";
+import { SignIn } from "./SignIn";
+import { SignUp } from "./SignUp";
 
-export { Auth, Community, Game, Main, News, Store };
+export { Cart, Home, Listing, ProductDetails, SignIn, SignUp };
 
